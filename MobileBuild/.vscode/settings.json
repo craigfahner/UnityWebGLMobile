@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.port": 7777,
+    "liveServer.settings.https": {
+      "enable": true,
+      "cert": "/Users/craigfahner/Desktop/MobileBuild/localhost.pem",
+      "key": "/Users/craigfahner/Desktop/MobileBuild/localhost.key",
+      "passphrase": "phonebooth"
+    }
+}
