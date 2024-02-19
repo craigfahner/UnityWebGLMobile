@@ -115,7 +115,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             GameObject spawnedPrefab = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
             planeToPrefabsMap[plane].Add(spawnedPrefab);
 
-            Debug.Log($"Spawned prefab {spawnedPrefab.name} at {spawnPosition}");
+            //Debug.Log($"Spawned prefab {spawnedPrefab.name} at {spawnPosition}");
             yield return null;
         }
     }

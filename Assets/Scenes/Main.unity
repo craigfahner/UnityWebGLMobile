@@ -827,7 +827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9be58c08597e98489a9e442d89679ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePrefab: {fileID: 2059477762}
+  planePrefab: {fileID: 3526400427895457298, guid: e2817213f9f8fa9418bfff823cec46ce,
+    type: 3}
   prefabTypes:
   - {fileID: 5784118704813857101, guid: 176a42107ce66c44aa74a67424591597, type: 3}
   renderDistance: 2
@@ -1025,12 +1026,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &2059477762 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3526400427895457298, guid: e2817213f9f8fa9418bfff823cec46ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 528869315}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2093140409
 PrefabInstance:
   m_ObjectHideFlags: 0
