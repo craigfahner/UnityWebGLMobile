@@ -8,14 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 4carz1024_glass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e77111046b851ae47b57003f367ef054,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _EMISSION
   - _METALLICSPECGLOSSMAP
   - _SPECULAR_SETUP
-  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -102,10 +103,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AOEnabled: 1
-    - _AOStrength: 0.2
+    - _AOStrength: 0.274
     - _AOToonShadingEnabled: 1
     - _AdditionalLightToonShadingEnabled: 1
-    - _AdditionalLightToonShadingThreshold: 0.1
+    - _AdditionalLightToonShadingThreshold: 0.268
     - _AlphaClip: 0
     - _AlphaClipThreshold: 0
     - _AlphaToMask: 0
@@ -132,8 +133,8 @@ Material:
     - _HasNormalMap: 0
     - _LightingMode: 1
     - _Metallic: 0
-    - _Midpoint: 0.3
-    - _MidpointStrength: 0.5
+    - _Midpoint: 0.274
+    - _MidpointStrength: 0.388
     - _Mode: 0
     - _NormalStrength: 1
     - _OcclusionStrength: 1
@@ -171,7 +172,7 @@ Material:
     - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 0}
-    - _ShadowTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowTint: {r: 0.17610055, g: 0.17000902, b: 0.17000902, a: 0}
     - _SpecColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
