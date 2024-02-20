@@ -28,11 +28,14 @@ public class Cube : MonoBehaviour
     void Update()
     {
         if (audioSource.isPlaying)
-            Debug.Log("Audio is playing. Current sample: " + audioSource.timeSamples);
+        {
+            // Debug.Log("Audio is playing. Current sample: " + audioSource.timeSamples);
+        }
         else
-            Debug.Log("Audio is not playing.");
-
-        int currentSample = audioSource.timeSamples;
+        {
+            // Debug.Log("Audio is not playing.");
+        }
+            int currentSample = audioSource.timeSamples;
         int tolerance = 600; // Example tolerance value, adjust as needed
 
         //foreach (int samplePoint in samplePoints)

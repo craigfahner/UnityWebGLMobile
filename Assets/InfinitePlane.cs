@@ -83,40 +83,43 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     IEnumerator SpawnPrefabsOnPlane(GameObject plane)
     {
-        GameObject shrubPrefab = prefabTypes[0]; // Assuming the shrub is the first prefab in the list
-        int shrubCount = 20; // The number of shrubs to spawn on each plane
-
-        // Spawn 20 shrubs on the plane
-        for (int i = 0; i < shrubCount; i++)
+        if (prefabTypes.Count != 0)
         {
-            Vector3 spawnPosition = new Vector3(
-                Random.Range(plane.transform.position.x - planeSize / 2, plane.transform.position.x + planeSize / 2),
-                2f, // Adjust this height as needed
-                Random.Range(plane.transform.position.z - planeSize / 2, plane.transform.position.z + planeSize / 2)
-            );
+            GameObject shrubPrefab = prefabTypes[0]; // Assuming the shrub is the first prefab in the list
+            int shrubCount = 20; // The number of shrubs to spawn on each plane
 
-            Instantiate(shrubPrefab, spawnPosition, Quaternion.identity);
-        }
-        if (!planeToPrefabsMap.ContainsKey(plane))
-        {
-            planeToPrefabsMap[plane] = new List<GameObject>();
-        }
+            // Spawn 20 shrubs on the plane
+            for (int i = 0; i < shrubCount; i++)
+            {
+                Vector3 spawnPosition = new Vector3(
+                    Random.Range(plane.transform.position.x - planeSize / 2, plane.transform.position.x + planeSize / 2),
+                    2f, // Adjust this height as needed
+                    Random.Range(plane.transform.position.z - planeSize / 2, plane.transform.position.z + planeSize / 2)
+                );
 
-        int prefabsToSpawn = Random.Range(1, maxPrefabsPerPlane + 1);
-        for (int i = 0; i < prefabsToSpawn; i++)
-        {
-            Vector3 spawnPosition = new Vector3(
-                Random.Range(plane.transform.position.x - planeSize / 2, plane.transform.position.x + planeSize / 2),
-                1.7f, // Adjust this height as needed
-                Random.Range(plane.transform.position.z - planeSize / 2, plane.transform.position.z + planeSize / 2)
-            );
+                Instantiate(shrubPrefab, spawnPosition, Quaternion.identity);
+            }
+            if (!planeToPrefabsMap.ContainsKey(plane))
+            {
+                planeToPrefabsMap[plane] = new List<GameObject>();
+            }
 
-            GameObject prefabToSpawn = prefabTypes[Random.Range(0, prefabTypes.Count)];
-            GameObject spawnedPrefab = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-            planeToPrefabsMap[plane].Add(spawnedPrefab);
+            int prefabsToSpawn = Random.Range(1, maxPrefabsPerPlane + 1);
+            for (int i = 0; i < prefabsToSpawn; i++)
+            {
+                Vector3 spawnPosition = new Vector3(
+                    Random.Range(plane.transform.position.x - planeSize / 2, plane.transform.position.x + planeSize / 2),
+                    1.7f, // Adjust this height as needed
+                    Random.Range(plane.transform.position.z - planeSize / 2, plane.transform.position.z + planeSize / 2)
+                );
 
-            //Debug.Log($"Spawned prefab {spawnedPrefab.name} at {spawnPosition}");
-            yield return null;
+                GameObject prefabToSpawn = prefabTypes[Random.Range(0, prefabTypes.Count)];
+                GameObject spawnedPrefab = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                planeToPrefabsMap[plane].Add(spawnedPrefab);
+
+                //Debug.Log($"Spawned prefab {spawnedPrefab.name} at {spawnPosition}");
+                yield return null;
+            }
         }
     }
 }

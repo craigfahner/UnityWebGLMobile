@@ -151,10 +151,10 @@ Material:
     - _HasNormalMap: 1
     - _LightingMode: 1
     - _Metallic: 0
-    - _Midpoint: 0.472
-    - _MidpointStrength: 0.5
+    - _Midpoint: 0.182
+    - _MidpointStrength: 0
     - _Mode: 0
-    - _NormalStrength: 1
+    - _NormalStrength: 1.18
     - _OcclusionStrength: 0.46
     - _Parallax: 0.0067
     - _QueueControl: -1
@@ -187,7 +187,7 @@ Material:
     - _Color_Lit: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _MainColor: {r: 0.9433962, g: 0.32633194, b: 0.13349934, a: 1}
+    - _MainColor: {r: 0.94509804, g: 0.36592665, b: 0.13333333, a: 1}
     - _RimColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 0}
     - _ShadowTint: {r: 0.21383637, g: 0.20374973, b: 0.20374973, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
