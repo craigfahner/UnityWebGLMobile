@@ -137,7 +137,24 @@ public class GPTtest : MonoBehaviour
     {
         mesh.vertices = modifiedVerts;
         mesh.RecalculateNormals();
-        GetComponentInChildren<MeshCollider>().sharedMesh = null;
-        GetComponentInChildren<MeshCollider>().sharedMesh = mesh;
+        MeshCollider meshCollider = GetComponentInChildren<MeshCollider>();
+        if (meshCollider != null)
+        {
+            meshCollider.sharedMesh = null;
+            meshCollider.sharedMesh = mesh;
+        }
+    }
+
+
+    public void ResetMesh()
+    {
+        if (vertices == null || mesh == null)
+        {
+            Debug.LogError("Mesh or vertices are not initialized.");
+            return;
+        }
+
+        modifiedVerts = (Vector3[])vertices.Clone(); // Reset modifiedVerts to the original vertices
+        RecalculateMesh(); // Apply the reset to the mesh and recalculate normals
     }
 }

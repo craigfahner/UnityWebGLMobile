@@ -153,7 +153,7 @@ Material:
     - _SpecularDabRotation: 0
     - _SpecularDabScale: 20
     - _SpecularHighlights: 1
-    - _SpecularHighlightsEnabled: 1
+    - _SpecularHighlightsEnabled: 0
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0

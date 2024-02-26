@@ -1,124 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
-public class InfinitePlaneGenerator : MonoBehaviour
+public class InfiniteCarMover : MonoBehaviour
 {
-    public GameObject planePrefab;
-    public List<GameObject> prefabTypes; // List of prefabs to spawn
-    public int renderDistance = 5;
-    public float planeSize = 10f;
-    public int maxPrefabsPerPlane = 50; // Maximum number of prefabs per plane
+    public GameObject car; // Assign your car GameObject in the Inspector
+    public List<GameObject> planes; // Assign all plane GameObjects in the scene
+    public float resetThreshold = 1000f; // Distance from origin at which to reset the car position
+    public float planeSize = 1000f; // Size of your planes, adjust according to your actual plane size
 
-    private Vector3 lastPlayerPosition;
-    private Dictionary<Vector3, GameObject> activePlanes = new Dictionary<Vector3, GameObject>();
-    private Dictionary<GameObject, List<GameObject>> planeToPrefabsMap = new Dictionary<GameObject, List<GameObject>>();
+    private Vector3 startPosition;
+    private Queue<GameObject> planesToReset = new Queue<GameObject>();
 
     void Start()
     {
-        lastPlayerPosition = transform.position;
-        UpdatePlanes();
+        startPosition = car.transform.position;
     }
 
     void Update()
     {
-        if (Vector3.Distance(lastPlayerPosition, transform.position) > planeSize / 2)
+        // Check the distance from the start position
+        if (Vector3.Distance(car.transform.position, startPosition) > resetThreshold)
         {
-            lastPlayerPosition = transform.position;
-            UpdatePlanes();
+            ResetCarPosition();
+            ResetPassedPlanes();
+        }
+
+        CheckPassedPlanes();
+    }
+
+    void ResetCarPosition()
+    {
+        // Reset the car to the start position
+        car.transform.position = startPosition;
+
+        // If the car has a Rigidbody and you wish to maintain its momentum, adjust accordingly
+        Rigidbody carRigidbody = car.GetComponent<Rigidbody>();
+        if (carRigidbody != null)
+        {
+            Vector3 currentVelocity = carRigidbody.velocity;
+            carRigidbody.position = startPosition; // Use Rigidbody.position for physics consistency
+            carRigidbody.velocity = currentVelocity;
         }
     }
 
-    void UpdatePlanes()
+    void CheckPassedPlanes()
     {
-        StartCoroutine(GeneratePlanes());
-    }
-
-    IEnumerator GeneratePlanes()
-    {
-        HashSet<Vector3> newPlanePositions = new HashSet<Vector3>();
-        int playerX = Mathf.FloorToInt(transform.position.x / planeSize);
-        int playerZ = Mathf.FloorToInt(transform.position.z / planeSize);
-
-        for (int x = -renderDistance; x <= renderDistance; x++)
+        foreach (var plane in planes)
         {
-            for (int z = -renderDistance; z <= renderDistance; z++)
+            float distanceToPlane = Vector3.Distance(car.transform.position, plane.transform.position);
+            // If the car has moved beyond the plane (considering planeSize/2 as the boundary),
+            // and the plane is not already in the queue to be reset
+            if (distanceToPlane > planeSize / 2 && !planesToReset.Contains(plane))
             {
-                Vector3 planePosition = new Vector3((playerX + x) * planeSize, 0, (playerZ + z) * planeSize);
-                newPlanePositions.Add(planePosition);
-                if (!activePlanes.ContainsKey(planePosition))
-                {
-                    GameObject plane = Instantiate(planePrefab, planePosition, Quaternion.identity);
-                    activePlanes[planePosition] = plane;
-                    yield return StartCoroutine(SpawnPrefabsOnPlane(plane));
-                }
+                planesToReset.Enqueue(plane);
             }
-        }
-
-        // Remove old planes and their associated prefabs
-        List<Vector3> planesToRemove = new List<Vector3>();
-        foreach (var planeEntry in activePlanes)
-        {
-            if (!newPlanePositions.Contains(planeEntry.Key))
-            {
-                if (planeToPrefabsMap.TryGetValue(planeEntry.Value, out List<GameObject> prefabs))
-                {
-                    foreach (GameObject prefab in prefabs)
-                    {
-                        Destroy(prefab);
-                    }
-                    planeToPrefabsMap.Remove(planeEntry.Value);
-                }
-
-                Destroy(planeEntry.Value);
-                planesToRemove.Add(planeEntry.Key);
-            }
-        }
-
-        foreach (var position in planesToRemove)
-        {
-            activePlanes.Remove(position);
         }
     }
 
-    IEnumerator SpawnPrefabsOnPlane(GameObject plane)
+    void ResetPassedPlanes()
     {
-        if (prefabTypes.Count != 0)
+        while (planesToReset.Count > 0)
         {
-            GameObject shrubPrefab = prefabTypes[0]; // Assuming the shrub is the first prefab in the list
-            int shrubCount = 20; // The number of shrubs to spawn on each plane
-
-            // Spawn 20 shrubs on the plane
-            for (int i = 0; i < shrubCount; i++)
+            GameObject plane = planesToReset.Dequeue();
+            // Assuming your planes have a script named GPTTest for resetting the mesh
+            GPTtest planeScript = plane.GetComponent<GPTtest>();
+            if (planeScript != null)
             {
-                Vector3 spawnPosition = new Vector3(
-                    Random.Range(plane.transform.position.x - planeSize / 2, plane.transform.position.x + planeSize / 2),
-                    2f, // Adjust this height as needed
-                    Random.Range(plane.transform.position.z - planeSize / 2, plane.transform.position.z + planeSize / 2)
-                );
-
-                Instantiate(shrubPrefab, spawnPosition, Quaternion.identity);
-            }
-            if (!planeToPrefabsMap.ContainsKey(plane))
-            {
-                planeToPrefabsMap[plane] = new List<GameObject>();
-            }
-
-            int prefabsToSpawn = Random.Range(1, maxPrefabsPerPlane + 1);
-            for (int i = 0; i < prefabsToSpawn; i++)
-            {
-                Vector3 spawnPosition = new Vector3(
-                    Random.Range(plane.transform.position.x - planeSize / 2, plane.transform.position.x + planeSize / 2),
-                    1.7f, // Adjust this height as needed
-                    Random.Range(plane.transform.position.z - planeSize / 2, plane.transform.position.z + planeSize / 2)
-                );
-
-                GameObject prefabToSpawn = prefabTypes[Random.Range(0, prefabTypes.Count)];
-                GameObject spawnedPrefab = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-                planeToPrefabsMap[plane].Add(spawnedPrefab);
-
-                //Debug.Log($"Spawned prefab {spawnedPrefab.name} at {spawnPosition}");
-                yield return null;
+                planeScript.ResetMesh();
             }
         }
     }

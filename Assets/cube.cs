@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Cube : MonoBehaviour
@@ -10,93 +11,67 @@ public class Cube : MonoBehaviour
 
     private AudioSource audioSource;
     public List<int> samplePoints; // List of sample points for cube generation
-    private HashSet<int> instantiatedPoints; // To keep track of instantiated points
-    private int currentIndex = 0;
+    private HashSet<int> instantiatedPoints = new HashSet<int>(); // To keep track of instantiated points
 
-    private Queue<GameObject> cubeQueue = new Queue<GameObject>();
+    private Queue<GameObject> cubePool = new Queue<GameObject>(); // Pool of cubes
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-        instantiatedPoints = new HashSet<int>();
-
         Debug.Log("Sample points: " + string.Join(", ", samplePoints));
     }
 
-
     void Update()
     {
-        if (audioSource.isPlaying)
+        if (Input.GetMouseButtonDown(0) && !audioSource.isPlaying)
         {
-            // Debug.Log("Audio is playing. Current sample: " + audioSource.timeSamples);
+            audioSource.Play(); // Start playing the audio
         }
-        else
+
+        int currentSample = audioSource.timeSamples;
+
+        foreach (int samplePoint in samplePoints)
         {
-            // Debug.Log("Audio is not playing.");
-        }
-            int currentSample = audioSource.timeSamples;
-        int tolerance = 600; // Example tolerance value, adjust as needed
-
-        //foreach (int samplePoint in samplePoints)
-        //{
-        //    if (!instantiatedPoints.Contains(samplePoint) &&
-        //        currentSample >= samplePoint)
-        //    {
-        //        GenerateCubesAroundCar();
-        //        instantiatedPoints.Add(samplePoint);
-        //        break; // Break after instantiating to avoid multiple instantiations per frame
-        //    }
-        //}
-
-
-        for (int i = 0; i<samplePoints.Count; i++)
-        {
-            if (!instantiatedPoints.Contains(samplePoints[i]) &&
-                 currentSample >= samplePoints[i])
+            if (!instantiatedPoints.Contains(samplePoint) && currentSample >= samplePoint)
             {
                 GenerateCubesAroundCar();
-                instantiatedPoints.Add(samplePoints[i]);
-                currentIndex = i+1;
+                instantiatedPoints.Add(samplePoint);
                 break; // Break after instantiating to avoid multiple instantiations per frame
             }
         }
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    samplePoints.Add(currentSample);
-        //}
-
     }
 
     void GenerateCubesAroundCar()
     {
-        Debug.Log("Generating cube around car. Sample is " + audioSource.timeSamples + " at index " + currentIndex);
-        // Check if the maximum number of cubes is reached
-        if (cubeQueue.Count >= maxCubes)
+        Debug.Log("Generating cube. Sample is " + audioSource.timeSamples);
+
+        GameObject cube;
+        if (cubePool.Count > 0 && !cubePool.Peek().activeInHierarchy)
         {
-            GameObject oldCube = cubeQueue.Dequeue();
-            Destroy(oldCube);
+            cube = cubePool.Dequeue();
+            cube.transform.position = CalculateSpawnPosition();
+            cube.transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
+            cube.SetActive(true);
+        }
+        else
+        {
+            cube = Instantiate(cubePrefab, CalculateSpawnPosition(), Quaternion.Euler(0, Random.Range(0f, 360f), 0));
         }
 
-        // Generate a random offset in a circle perpendicular to the car's forward direction
+        StartCoroutine(SetInactiveAfterDelay(cube, 6f)); // Set cube to inactive after 6 seconds
+        cubePool.Enqueue(cube); // Add the cube back to the pool
+    }
+
+    Vector3 CalculateSpawnPosition()
+    {
         Vector2 randomCircle = Random.insideUnitCircle * generationRadius;
-        float fixedHeight = 1f; // Fixed height for the cubes
-        Vector3 randomOffset = new Vector3(randomCircle.x, 0f, randomCircle.y);
+        Vector3 forwardOffsetPosition = transform.position + transform.forward * 20f;
+        return forwardOffsetPosition + transform.TransformDirection(new Vector3(randomCircle.x, 0f, randomCircle.y));
+    }
 
-        // Position in front of the car with an offset
-        Vector3 forwardOffsetPosition = transform.position + transform.forward * 20f; // 10 units in front of the car
-
-        // Apply the random offset relative to the car's orientation
-        Vector3 spawnPosition = forwardOffsetPosition + transform.TransformDirection(randomOffset);
-
-        // Generate a random rotation around the y-axis
-        Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
-
-        // Instantiate the cube with random rotation on the y-axis
-        GameObject newCube = Instantiate(cubePrefab, spawnPosition, randomRotation);
-
-        // Add the new cube to the queue
-        cubeQueue.Enqueue(newCube);
+    IEnumerator SetInactiveAfterDelay(GameObject cube, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cube.SetActive(false);
     }
 }

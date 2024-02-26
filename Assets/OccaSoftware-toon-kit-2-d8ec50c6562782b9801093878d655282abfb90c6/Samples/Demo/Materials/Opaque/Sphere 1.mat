@@ -64,11 +64,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Emission_Map:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 847db44ad033a8c4cbdb9fb7d436b35d, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -76,7 +76,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 5a28c132a56db284985115ff268de115, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
         m_Texture: {fileID: 0}
@@ -92,7 +92,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _RoughnessMap:
         m_Texture: {fileID: 2800000, guid: c2d2bbda5b3a994448575c0d14d84eea, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_55353A41_Texture_1:
         m_Texture: {fileID: 2800000, guid: 59c8de363dc14c54986d0751c2c38342, type: 3}
@@ -161,17 +161,17 @@ Material:
     - Vector1_E5396CBA: 1
     - Vector1_E594399F: 0
     - Vector1_F222C338: 1.5
-    - _AOEnabled: 0
-    - _AOStrength: 0.2
+    - _AOEnabled: 1
+    - _AOStrength: 0.364
     - _AOToonShadingEnabled: 1
-    - _AdditionalLightToonShadingEnabled: 0
+    - _AdditionalLightToonShadingEnabled: 1
     - _AdditionalLightToonShadingThreshold: 0.3
     - _Additional_Light_Toon_Shading_Enabled: 0
     - _Additional_Light_Toon_Shading_Threshold: 0
     - _AlphaClip: 1
     - _AlphaClipThreshold: 0.625
     - _AlphaToMask: 0
-    - _AmbientLightStrength: 0
+    - _AmbientLightStrength: 0.389
     - _AmbientOcclusionEnabled: 1
     - _Ambient_Occlusion_Intensity: 0.2
     - _Ambient_Occusion_Toon_Shading_Enabled: 1
@@ -180,7 +180,7 @@ Material:
     - _Boolean: 0
     - _BumpScale: 1
     - _CastShadows: 1
-    - _Cull: 0
+    - _Cull: 2
     - _CustomColorsEnabled: 0
     - _Cutoff: 0.5
     - _DebugViewState: 0
@@ -195,20 +195,20 @@ Material:
     - _LightingMode: 1
     - _MainLightSoftness: 1
     - _Metallic: 0
-    - _Midpoint: 0.648
-    - _MidpointStrength: 0.216
+    - _Midpoint: 0.215
+    - _MidpointStrength: 0.119
     - _Midpoint_Strength: 0.5
-    - _NormalStrength: 0.46
+    - _NormalStrength: 0.9
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _OverlayModeEnabled: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ReceiveAdditionalLights: 0
+    - _ReceiveAdditionalLights: 1
     - _ReceiveShadows: 1
     - _RimLightingEnabled: 0
     - _RimThreshold: 0.766
-    - _RoughnessAmount: 0.379
+    - _RoughnessAmount: 0.35
     - _SCREEN_SPACE_OCCLUSION: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -238,9 +238,9 @@ Material:
     - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
     - _LitColor: {r: 1, g: 1, b: 1, a: 0}
     - _MainColor: {r: 0.9811321, g: 0.41971532, b: 0.2437402, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RimColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowTint: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowTint: {r: 0.16981131, g: 0.16927731, b: 0.16927731, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
