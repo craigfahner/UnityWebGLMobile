@@ -30,6 +30,12 @@ public class Cube : MonoBehaviour
 
         int currentSample = audioSource.timeSamples;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Sample point: " + currentSample);
+        }
+
+
         foreach (int samplePoint in samplePoints)
         {
             if (!instantiatedPoints.Contains(samplePoint) && currentSample >= samplePoint)
