@@ -122,10 +122,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AOEnabled: 1
-    - _AOStrength: 0.2
+    - _AOStrength: 0
     - _AOToonShadingEnabled: 1
     - _AdditionalLightToonShadingEnabled: 1
-    - _AdditionalLightToonShadingThreshold: 0.1
+    - _AdditionalLightToonShadingThreshold: 0.016
     - _AlphaClip: 0
     - _AlphaClipThreshold: 0
     - _AlphaToMask: 0
@@ -151,10 +151,10 @@ Material:
     - _HasNormalMap: 1
     - _LightingMode: 1
     - _Metallic: 0
-    - _Midpoint: 0.182
-    - _MidpointStrength: 0
+    - _Midpoint: 0.682
+    - _MidpointStrength: 0.451
     - _Mode: 0
-    - _NormalStrength: 1.18
+    - _NormalStrength: 3.209
     - _OcclusionStrength: 0.46
     - _Parallax: 0.0067
     - _QueueControl: -1
@@ -163,7 +163,7 @@ Material:
     - _ReceiveShadows: 1
     - _RimLightingEnabled: 0
     - _RimThreshold: 0.85
-    - _RoughnessAmount: 0.25
+    - _RoughnessAmount: 0.5
     - _Shininess: 0.078125
     - _Smoothness: 0.764
     - _SmoothnessTextureChannel: 0

@@ -133,8 +133,8 @@ Material:
     - _HasNormalMap: 0
     - _LightingMode: 1
     - _Metallic: 0
-    - _Midpoint: 0.274
-    - _MidpointStrength: 0.388
+    - _Midpoint: 0.559
+    - _MidpointStrength: 0.655
     - _Mode: 0
     - _NormalStrength: 1
     - _OcclusionStrength: 1
