@@ -2261,7 +2261,7 @@ MonoBehaviour:
   - samplePoint: 84671
     targetTimeOfDay: 8
   - samplePoint: 642566
-    targetTimeOfDay: 12
+    targetTimeOfDay: 10
   - samplePoint: 2038713
     targetTimeOfDay: 9
   - samplePoint: 3175199
@@ -2271,7 +2271,7 @@ MonoBehaviour:
   - samplePoint: 3900000
     targetTimeOfDay: 5
   - samplePoint: 3938188
-    targetTimeOfDay: 12
+    targetTimeOfDay: 10
   - samplePoint: 4650892
     targetTimeOfDay: 9
   - samplePoint: 5270000
@@ -4789,6 +4789,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393552, guid: fdaef77da8d626047bb0a8256e1d1bf0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45f1d5f0fcfb64dd2b3d781c13bae885, type: 2}
+    - target: {fileID: 2393552, guid: fdaef77da8d626047bb0a8256e1d1bf0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 110c00ad8ac1a411daeac5d046c635e5, type: 2}
     - target: {fileID: 11455904, guid: fdaef77da8d626047bb0a8256e1d1bf0, type: 3}
       propertyPath: audioType
       value: 3
@@ -5543,6 +5551,11 @@ PrefabInstance:
       propertyPath: deformationStrength
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 922947314630320588, guid: 8ed9e03298a67e84fbbee886e88f5f34,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 94a8fe965c5fa4200ab5f4e7962be8cb, type: 2}
     - target: {fileID: 4809282975602372499, guid: 8ed9e03298a67e84fbbee886e88f5f34,
         type: 3}
       propertyPath: m_Mesh

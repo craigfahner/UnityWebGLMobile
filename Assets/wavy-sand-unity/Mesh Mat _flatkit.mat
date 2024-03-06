@@ -228,8 +228,8 @@ Material:
     - _UVSec: 0
     - _UnityShadowMode: 0
     - _UnityShadowOcclusion: 0
-    - _UnityShadowPower: 0.104
-    - _UnityShadowSharpness: 3.6
+    - _UnityShadowPower: 1
+    - _UnityShadowSharpness: 10
     - _VertexColorsEnabled: 0
     - _VertexExtrusionSmoothNormals: 0
     - _ViewState: 0
