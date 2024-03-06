@@ -103,14 +103,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _AOEnabled: 1
-    - _AOStrength: 0.274
+    - _AOStrength: 0.384
     - _AOToonShadingEnabled: 1
     - _AdditionalLightToonShadingEnabled: 1
-    - _AdditionalLightToonShadingThreshold: 0.268
+    - _AdditionalLightToonShadingThreshold: 0.026
     - _AlphaClip: 0
     - _AlphaClipThreshold: 0
     - _AlphaToMask: 0
-    - _AmbientLightStrength: 1
+    - _AmbientLightStrength: 0.009
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -144,7 +144,7 @@ Material:
     - _ReceiveAdditionalLights: 1
     - _ReceiveShadows: 1
     - _RimLightingEnabled: 1
-    - _RimThreshold: 0.85
+    - _RimThreshold: 0.812
     - _RoughnessAmount: 0.25
     - _Shininess: 0.07245041
     - _Smoothness: 1
