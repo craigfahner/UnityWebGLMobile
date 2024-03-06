@@ -2065,7 +2065,7 @@ MonoBehaviour:
   maxRotationOffset: 30
   noiseMagnitude: 1
   positionOffset: {x: 1, y: 0.5, z: 0.5}
-  distanceFromCar: 2
+  distanceFromCar: 40
 --- !u!4 &1024255632
 Transform:
   m_ObjectHideFlags: 0
@@ -2442,7 +2442,7 @@ MonoBehaviour:
   maxRotationOffset: 30
   noiseMagnitude: 1
   positionOffset: {x: 0, y: 0, z: 0}
-  distanceFromCar: 1.5
+  distanceFromCar: 40
 --- !u!4 &1316703939
 Transform:
   m_ObjectHideFlags: 0
