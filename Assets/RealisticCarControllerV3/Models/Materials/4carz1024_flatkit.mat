@@ -212,9 +212,9 @@ Material:
     - _RimMin: 0.4
     - _RimThreshold: 0.85
     - _RoughnessAmount: 0.25
-    - _SelfShadingSize: 0.447
-    - _SelfShadingSizeExtra: 0.791
-    - _ShadowEdgeSize: 0.207
+    - _SelfShadingSize: 0.492
+    - _SelfShadingSizeExtra: 0.774
+    - _ShadowEdgeSize: 0.285
     - _ShadowEdgeSizeExtra: 0.088
     - _Shininess: 0.10147396
     - _Smoothness: 1
@@ -243,7 +243,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.3207547, g: 0.28898183, b: 0.28898183, a: 1}
+    - _BaseColor: {r: 0.509434, g: 0.4541652, b: 0.4541652, a: 1}
     - _Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     - _ColorDim: {r: 0, g: 0, b: 0, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}

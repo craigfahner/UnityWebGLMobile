@@ -2843,6 +2843,9 @@ MonoBehaviour:
   theAudio: {fileID: 0}
   paused: 0
   skipPosition: 0
+  skipPos1: 85
+  skipPos2: 117
+  skipPos3: 0
 --- !u!114 &1376055319
 MonoBehaviour:
   m_ObjectHideFlags: 0

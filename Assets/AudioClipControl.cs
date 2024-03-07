@@ -8,6 +8,9 @@ public class AudioClipControl : MonoBehaviour
     public bool paused = false;
     public int skipPosition = 0;
     private int prevSkipPos = 0;
+    public int skipPos1 = 0;
+    public int skipPos2 = 117;
+    public int skipPos3 = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +34,20 @@ public class AudioClipControl : MonoBehaviour
             theAudio.time = skipPosition;
             prevSkipPos = skipPosition;
         }
+
+        if (Input.touchCount == 2)
+        {
+            theAudio.time = skipPos1;
+        }
+
+        if(Input.touchCount == 3)
+        {
+            theAudio.time = skipPos2;
+        }
+        if (Input.touchCount == 4)
+        {
+            theAudio.time = skipPos3;
+        }
+
     }
 }
