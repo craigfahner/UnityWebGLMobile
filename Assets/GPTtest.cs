@@ -47,42 +47,44 @@ public class GPTtest : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity);
 
         foreach (var hit in hits)
-    {
-        // Debug: Log all hits
-        Debug.Log($"Hit: {hit.collider.name}, Tag: {hit.collider.tag}");
-
-        // If the hit object is the player, exit the method
-        if (hit.collider.CompareTag("Player"))
         {
-            Debug.Log("Hit Player - Skipping Deformation");
-            return; // Exit the function early
+            // Debug: Log all hits
+            Debug.Log($"Hit: {hit.collider.name}, Tag: {hit.collider.tag}");
+
+            // If the hit object is the player, exit the method
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Hit Player - Skipping Deformation");
+                return; // Exit the function early
+            }
+        }
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider.CompareTag("Plane"))
+            {
+                Vector3 hitPoint = hit.point;
+                if (carTransform != null)
+                {
+                    Vector3 anchorPoint = carTransform.position; // Adjust this if you have an offset
+                    float distanceFromAnchor = Vector3.Distance(hitPoint, anchorPoint);
+
+                    if (distanceFromAnchor > noDeformationRadius)
+                    {
+                        Debug.Log("Out");
+                        ApplyDeformation(hit, hitPoint);
+                        break;
+                    }
+                    else
+                    {
+                        Debug.Log("In");
+                        break;
+                    }
+                }
+
+            }
         }
     }
-
-    foreach (var hit in hits)
-    {
-        if (hit.collider.CompareTag("Plane")) 
-        {
-            Vector3 hitPoint = hit.point;
-            if (carTransform != null)
-            {
-                Vector3 anchorPoint = carTransform.position; // Adjust this if you have an offset
-                float distanceFromAnchor = Vector3.Distance(hitPoint, anchorPoint);
-
-                if (distanceFromAnchor > noDeformationRadius)
-                {
-                    Debug.Log("Out");
-                    ApplyDeformation(hit, hitPoint);
-                    break;
-                }
-                else
-                {
-                    Debug.Log("In");
-                    break;
-                }
-            }
-       
-}
 
     void ApplyDeformation(RaycastHit hit, Vector3 hitPoint)
     {
