@@ -81,8 +81,7 @@ public class GPTtest : MonoBehaviour
                     break;
                 }
             }
-        }
-    }
+       
 }
 
     void ApplyDeformation(RaycastHit hit, Vector3 hitPoint)
@@ -150,7 +149,7 @@ public class GPTtest : MonoBehaviour
     {
         if (vertices == null || mesh == null)
         {
-            Debug.LogError("Mesh or vertices are not initialized.");
+            Debug.Log("Mesh or vertices are not initialized.");
             return;
         }
 

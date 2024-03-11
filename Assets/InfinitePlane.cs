@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class InfiniteCarMover : MonoBehaviour
 {
     public GameObject car; // Assign your car GameObject in the Inspector
-    public List<GameObject> planes; // Assign all plane GameObjects in the scene
+    public GameObject plane; // Assign all plane GameObjects in the scene
     public float resetThreshold = 1000f; // Distance from origin at which to reset the car position
     public float planeSize = 1000f; // Size of your planes, adjust according to your actual plane size
 
@@ -22,10 +22,15 @@ public class InfiniteCarMover : MonoBehaviour
         if (Vector3.Distance(car.transform.position, startPosition) > resetThreshold)
         {
             ResetCarPosition();
-            ResetPassedPlanes();
+            //ResetPassedPlanes();
+            GPTtest planeScript = plane.GetComponent<GPTtest>();
+            if (planeScript != null)
+            {
+                planeScript.ResetMesh();
+            }
         }
 
-        CheckPassedPlanes();
+        //CheckPassedPlanes();
     }
 
     void ResetCarPosition()
@@ -43,7 +48,7 @@ public class InfiniteCarMover : MonoBehaviour
         }
     }
 
-    void CheckPassedPlanes()
+    /*void CheckPassedPlanes()
     {
         foreach (var plane in planes)
         {
@@ -69,5 +74,5 @@ public class InfiniteCarMover : MonoBehaviour
                 planeScript.ResetMesh();
             }
         }
-    }
+    }*/
 }
