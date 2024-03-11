@@ -3,7 +3,8 @@ using UnityEngine;
 public class AutoDrive : MonoBehaviour
 {
     public RCC_Inputs newInputs = new RCC_Inputs();
-    public float throttleValue = 0.5f;
+    public float throttleValue = 0.0f;
+    public float throttle = 0.5f;
     public RCC_CarControllerV3 targetVehicle;
     private Vector3 lastPosition;
     private float positionCheckDelay = 10f; // Time in seconds to wait before checking position change

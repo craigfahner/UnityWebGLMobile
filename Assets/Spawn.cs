@@ -14,6 +14,8 @@ public struct SpawnableItem
 public class Spawn: MonoBehaviour
 {
     public GameObject Origin;
+    public ActivateTumbleweeds tumbleweedScript;
+    public AutoDrive autoDriveScript;
 
     public float generationRadius = 5f;
     //public int maxCubes = 20; // Maximum number of cubes allowed
@@ -30,6 +32,7 @@ public class Spawn: MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         Debug.Log("Sample points: " + string.Join(", ", spawnableItems.Select(item => item.samplePoint.ToString()).ToArray()));
         Origin.SetActive(false);
+        autoDriveScript = GetComponent<AutoDrive>();
     }
 
     void Update()
@@ -37,6 +40,8 @@ public class Spawn: MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !audioSource.isPlaying)
         {
             audioSource.Play(); // Start playing the audio
+            tumbleweedScript.StartTumbleweeds();
+            autoDriveScript.throttleValue = autoDriveScript.throttle;
         }
 
         int currentSample = audioSource.timeSamples;
