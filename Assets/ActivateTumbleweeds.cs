@@ -5,7 +5,6 @@ using UnityEngine;
 public class ActivateTumbleweeds : MonoBehaviour
 {
 
-    public Transform car;
     // Function to activate all children of the GameObject
     public void StartTumbleweeds()
     {
