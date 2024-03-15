@@ -19,7 +19,7 @@ public class EndGame : MonoBehaviour
     private void Update()
     {
         // Check if the audio sample has reached 7500000
-        if (audioSource.timeSamples >= 7500000)
+        if (audioSource.timeSamples >= 7550000)
         {
             // Pause the audio and show the UI
             audioSource.Pause();
