@@ -99,61 +99,7 @@ public class Spawn: MonoBehaviour
     }
 
 
-    /*void MoveAllActiveObjectsUnderground()
-    {
-        foreach (GameObject obj in cubePool)
-        {
-            if (obj.activeInHierarchy)
-            {
-                StartCoroutine(MoveObjectUnderground(obj));
-            }
-        }
-    }*/
-
-    /*IEnumerator MoveObjectUnderground(GameObject obj)
-    {
-       // Debug.Log("Starting to move object underground: " + obj.name);
-        Vector3 start = obj.transform.position;
-        Vector3 end = new Vector3(start.x, -20f, start.z); // Target underground position, adjust -5f as needed
-        float duration = 2.0f; // Duration of the animation, adjust as needed
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            obj.transform.position = Vector3.Lerp(start, end, t / duration);
-            yield return null;
-        }
-
-        obj.transform.position = end;
-        // Optionally, deactivate the object here if you don't need it visible underground
-       // obj.SetActive(false); // Deactivate the object
-        if (!cubePool.Contains(obj))
-        {
-            cubePool.Enqueue(obj); // Return to the pool for reuse
-        }
-    }*/
-
-
-    /*void GenerateObject(GameObject prefab)
-    {
-        Debug.Log("Generating object. Sample is " + audioSource.timeSamples);
-
-        GameObject instance;
-        if (cubePool.Count > 0 && !cubePool.Peek().activeInHierarchy)
-        {
-            instance = cubePool.Dequeue();
-        }
-        else
-        {
-            instance = Instantiate(prefab);
-        }
-
-        instance.transform.position = CalculateSpawnPosition();
-        instance.transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
-        instance.SetActive(true);
-
-        StartCoroutine(SetInactiveAfterDelay(instance, 6f)); // Set object to inactive after 6 seconds
-        cubePool.Enqueue(instance); // Add the object back to the pool
-    }*/
+  
     void GenerateObject(GameObject prefab)
     {
         Debug.Log("Generating object. Sample is " + audioSource.timeSamples);

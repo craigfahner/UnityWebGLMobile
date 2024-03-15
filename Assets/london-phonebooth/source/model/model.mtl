@@ -1,0 +1,10 @@
+# Made in Blockbench 2.6.6
+newmtl 0
+map_Kd phonebooth1.png
+newmtl 1
+map_Kd phonebooth2.png
+newmtl 2
+map_Kd phonebooth3.png
+newmtl 3
+map_Kd telephone4.png
+newmtl none

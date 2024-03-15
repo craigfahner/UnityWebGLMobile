@@ -6,6 +6,9 @@ public class EndGame : MonoBehaviour
 {
     public AudioSource audioSource; // Assign your AudioSource in the inspector
     public GameObject tapToReplayUI; // Assign your Tap to Replay UI GameObject in the inspector
+    public GameObject car;
+    public GameObject weeds;
+
 
     private void Start()
     {
@@ -32,6 +35,19 @@ public class EndGame : MonoBehaviour
             // Reset the audio sample to 0 and play the audio again
             audioSource.timeSamples = 0;
             audioSource.Play();
+
+            car.transform.position = new Vector3 (-282f, 1.5f, -587f);
+            car.transform.rotation = Quaternion.identity;
+
+            Rigidbody carRigidbody = car.GetComponent<Rigidbody>();
+            if (carRigidbody != null)
+            {
+                carRigidbody.velocity = Vector3.zero; // Reset linear velocity
+                carRigidbody.angularVelocity = Vector3.zero; // Reset angular velocity
+            }
+
+            weeds.transform.position = new Vector3(-304f, 1.5f, -399f);
+            weeds.transform.rotation = Quaternion.identity;
         }
     }
 }
