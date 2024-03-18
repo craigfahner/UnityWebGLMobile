@@ -36,7 +36,7 @@ public class EndGame : MonoBehaviour
                 ended = true;
                 GameOver();
                 sentMessage = true;
-                Invoke("QuitApplication", 2f);
+                Invoke("QuitApplication", 1f);
             }
 
             // this is where the CSS popup thing would happen

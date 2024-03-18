@@ -5668,7 +5668,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: af0a0541fa2c14bef968a4ada53e1d71,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2588191
+      value: 0.108867005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af0a0541fa2c14bef968a4ada53e1d71,
         type: 3}
@@ -5678,7 +5678,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: af0a0541fa2c14bef968a4ada53e1d71,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9659258
+      value: 0.9940563
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af0a0541fa2c14bef968a4ada53e1d71,
         type: 3}
@@ -5693,7 +5693,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: af0a0541fa2c14bef968a4ada53e1d71,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 150
+      value: 167.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af0a0541fa2c14bef968a4ada53e1d71,
         type: 3}
@@ -7109,12 +7109,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4220209714019538527, guid: 6357a61944fd14240a3af4e7e359687e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7014982302039423165, guid: 6357a61944fd14240a3af4e7e359687e,
+    - target: {fileID: 5665235247129852355, guid: 6357a61944fd14240a3af4e7e359687e,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -12657,7 +12652,7 @@ MonoBehaviour:
   carTransform: {fileID: 1376055328}
   audioSource: {fileID: 1376055309}
   distanceAhead: 90
-  directionSmoothTime: 0.5
+  directionSmoothTime: 0.1
   sampleRateThreshold: 3860000
   descentDepth: -10
   descentSpeed: 12
