@@ -56,7 +56,7 @@ public class DiceSpawner : MonoBehaviour
 
     void ResetForReplay()
     {
-        Debug.Log("Reset");
+        //Debug.Log("Reset");
         instantiatedPoints.Clear(); // Clears the record of instantiated sample points
     }
 
@@ -66,7 +66,7 @@ public class DiceSpawner : MonoBehaviour
 
         // Calculate left offset based on the car's current orientation
         // Note: Multiplying by -1 to move to the left as Transform.right points to the right
-        Vector3 leftOffset = carTransform.right * 40; // Moves 40 units to the left of the car's current position
+        Vector3 leftOffset = carTransform.right * 50; // Moves 40 units to the left of the car's current position
 
         // Combine the offsets with the car's current position to get the spawn position
         Vector3 spawnPosition = carTransform.position + forwardOffset + leftOffset;

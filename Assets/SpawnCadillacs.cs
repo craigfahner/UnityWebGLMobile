@@ -50,19 +50,14 @@ public class SpawnCadillacs : MonoBehaviour
             }
         }
 
-        if (currentSample > 5200000) // Replace `certainNumber` with your specific audio sample threshold
-        {
-            //Debug.Log("Moving objects underground");
-
-            Origin.SetActive(false);
-        }
-
-        if (currentSample > 5000000) // Replace `certainNumber` with your specific audio sample threshold
+        if (currentSample > 1250000) // Replace `certainNumber` with your specific audio sample threshold
         {
             Origin.SetActive(false);
         }
 
-        if (currentSample > 3938000 & currentSample < 5000000) // Replace `certainNumber` with your specific audio sample threshold
+
+
+        if (currentSample > 652915 & currentSample < 1182585) // Replace `certainNumber` with your specific audio sample threshold
         {
             //Debug.Log("Moving objects underground");
             Origin.SetActive(true);
@@ -77,7 +72,7 @@ public class SpawnCadillacs : MonoBehaviour
 
     void ResetForReplay()
     {
-        Debug.Log("Reset");
+       // Debug.Log("Reset");
         instantiatedPoints.Clear(); // Clears the record of instantiated sample points
         foreach (GameObject obj in cubePool)
         {
@@ -102,10 +97,11 @@ public class SpawnCadillacs : MonoBehaviour
         }
 
         // Start the object below ground
-        if(carFlip == 0)
+        if (carFlip == 0)
         {
             carFlip = 1;
-        } else
+        }
+        else
         {
             carFlip = 0;
         }

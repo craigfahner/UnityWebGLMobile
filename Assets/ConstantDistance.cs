@@ -114,6 +114,16 @@ public class ConstantDistance : MonoBehaviour
 
             // Update the position based on smooth damp or directly, but keep y at 9 unless descending
             phoneBooth.transform.position = new Vector3(targetDirectPosition.x, phoneBooth.transform.position.y, targetDirectPosition.z);
+            Vector3 direction = carTransform.position - transform.position;
+            direction.y = 0; // Restrict rotation to only the Y-axis
+
+            // Rotate towards the target
+            if (direction != Vector3.zero)
+            {
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.9f);
+            }
+
             previousCarPosition = carTransform.position; // Update for the next frame
         }
     }

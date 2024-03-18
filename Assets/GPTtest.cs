@@ -15,6 +15,8 @@ public class GPTtest : MonoBehaviour
     private Mesh mesh;
     private Vector3[] vertices, modifiedVerts;
 
+    public EndGame endScript;
+
     void Start()
     {
         GameObject car = GameObject.FindGameObjectWithTag("Player");
@@ -49,12 +51,12 @@ public class GPTtest : MonoBehaviour
         foreach (var hit in hits)
         {
             // Debug: Log all hits
-            Debug.Log($"Hit: {hit.collider.name}, Tag: {hit.collider.tag}");
+          //  Debug.Log($"Hit: {hit.collider.name}, Tag: {hit.collider.tag}");
 
             // If the hit object is the player, exit the method
             if (hit.collider.CompareTag("Player"))
             {
-                Debug.Log("Hit Player - Skipping Deformation");
+                //Debug.Log("Hit Player - Skipping Deformation");
                 return; // Exit the function early
             }
         }
@@ -71,13 +73,13 @@ public class GPTtest : MonoBehaviour
 
                     if (distanceFromAnchor > noDeformationRadius)
                     {
-                        Debug.Log("Out");
+                        //Debug.Log("Out");
                         ApplyDeformation(hit, hitPoint);
                         break;
                     }
                     else
                     {
-                        Debug.Log("In");
+                        //Debug.Log("In");
                         break;
                     }
                 }
@@ -97,29 +99,43 @@ public class GPTtest : MonoBehaviour
         // Determine the mesh bounds
         Bounds meshBounds = mesh.bounds;
         float edgeThreshold = 0.1f; // Distance from edge to restrict deformation
-
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        if (endScript.ended == false)
         {
-            bool meshModified = false;
 
-            for (int v = 0; v < modifiedVerts.Length; v++)
+
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.touchCount == 2)
             {
-                Vector3 localVertexPosition = childMeshFilter.transform.TransformPoint(modifiedVerts[v]);
-                float distance = Vector3.Distance(localVertexPosition, hitPoint);
+                bool meshModified = false;
 
-                // Check if the vertex is within the deformation radius and not too close to the edge
-                if (distance < adjustedRadius && IsVertexFarFromEdge(meshBounds, modifiedVerts[v], edgeThreshold))
+                for (int v = 0; v < modifiedVerts.Length; v++)
                 {
-                    float deformationFactor = (1 - (distance / adjustedRadius)) * deformationStrength;
-                    Vector3 deformationDirection = (Input.GetMouseButton(0)) ? Vector3.up : Vector3.down;
-                    modifiedVerts[v] += deformationDirection * deformationFactor;
-                    meshModified = true;
-                }
-            }
+                    Vector3 localVertexPosition = childMeshFilter.transform.TransformPoint(modifiedVerts[v]);
+                    float distance = Vector3.Distance(localVertexPosition, hitPoint);
 
-            if (meshModified)
-            {
-                RecalculateMesh();
+                    // Check if the vertex is within the deformation radius and not too close to the edge
+                    if (distance < adjustedRadius && IsVertexFarFromEdge(meshBounds, modifiedVerts[v], edgeThreshold))
+                    {
+                        float deformationFactor = (1 - (distance / adjustedRadius)) * deformationStrength;
+                        Vector3 deformationDirection = Vector3.up;
+                        if (Input.GetMouseButton(0))
+                        {
+                            deformationDirection = Vector3.up;
+                        }
+                        else if (Input.GetMouseButton(1) || Input.touchCount == 2)
+                        {
+                            deformationDirection = Vector3.down;
+                        }
+
+
+                        modifiedVerts[v] += deformationDirection * deformationFactor;
+                        meshModified = true;
+                    }
+                }
+
+                if (meshModified)
+                {
+                    RecalculateMesh();
+                }
             }
         }
     }

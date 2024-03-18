@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
 [System.Serializable] // Make it visible in the inspector
 public struct SpawnableItem
 {
@@ -13,6 +14,7 @@ public struct SpawnableItem
 
 public class Spawn: MonoBehaviour
 {
+
     public GameObject Origin;
     public ActivateTumbleweeds tumbleweedScript;
     public AutoDrive autoDriveScript;
@@ -89,7 +91,7 @@ public class Spawn: MonoBehaviour
 
     void ResetForReplay()
     {
-        Debug.Log("Reset");
+        //Debug.Log("Reset");
         instantiatedPoints.Clear(); // Clears the record of instantiated sample points
         foreach (GameObject obj in cubePool)
         {

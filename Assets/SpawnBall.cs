@@ -61,7 +61,7 @@ public class SpawnBall : MonoBehaviour
 
     void ResetForReplay()
     {
-        Debug.Log("Reset");
+       // Debug.Log("Reset");
         instantiatedPoints.Clear(); // Clears the record of instantiated sample points
         foreach (GameObject obj in cubePool)
         {
