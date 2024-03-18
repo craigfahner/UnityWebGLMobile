@@ -49,6 +49,7 @@ public class DiceSpawner : MonoBehaviour
         Vector3 spawnPosition = CalculateSpawnPosition();
         // Instantiate the prefab at the calculated spawn position with no rotation
         GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        spawnedObject.SetActive(true);
 
         // Destroy the instantiated object after 2 seconds
         Destroy(spawnedObject, 3f);

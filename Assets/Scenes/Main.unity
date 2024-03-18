@@ -12663,6 +12663,7 @@ MonoBehaviour:
   originalMaterial: {fileID: 2100000, guid: 94a8fe965c5fa4200ab5f4e7962be8cb, type: 2}
   startDistance: 100
   endDistance: 30
+  rotated: 0
 --- !u!4 &1280857377
 Transform:
   m_ObjectHideFlags: 0
@@ -13980,8 +13981,7 @@ MonoBehaviour:
   generationRadius: 5
   sampleOffset: 3500
   spawnableItems:
-  - prefab: {fileID: 2478923546611520851, guid: 67e4e9c8d04240f4baaa8399eb7f981f,
-      type: 3}
+  - prefab: {fileID: 561426444}
     samplePoint: 2663757
   - prefab: {fileID: 2478923546611520851, guid: 67e4e9c8d04240f4baaa8399eb7f981f,
       type: 3}
@@ -19110,7 +19110,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 2.840149, y: 3.2726405, z: 42.930786}
   m_Center: {x: -0.038269043, y: 1.13632, z: -0.6185303}
@@ -20540,6 +20540,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice
       objectReference: {fileID: 0}
+    - target: {fileID: 2478923546611520851, guid: 67e4e9c8d04240f4baaa8399eb7f981f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446945733442710413, guid: 67e4e9c8d04240f4baaa8399eb7f981f,
+        type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446945733442710413, guid: 67e4e9c8d04240f4baaa8399eb7f981f,
+        type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 1376055328}
     - target: {fileID: 7683272035089592553, guid: 67e4e9c8d04240f4baaa8399eb7f981f,
         type: 3}
       propertyPath: m_LocalPosition.x
